@@ -1,17 +1,13 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import todoApp from './reducers';
-import App from './components/App';
 import './index.css';
+import configStore from './components/configStore';
+import Root from './components/Root';
 
-const store = createStore(todoApp);
+const store = configStore();
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Root store={store} />,
   document.getElementById('root')
 );
